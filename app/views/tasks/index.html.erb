@@ -1,0 +1,40 @@
+<div id="task-index">
+  <% if msg = flash[:error] %>
+    <div class="alert alert-danger alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+        &times;
+      </button>
+      <strong><%= msg %></strong>
+    </div>
+  <% end %>
+  <ul class="list-group" id="tasks">
+    <% @tasks.each do |task| %>
+      <% if task.completed_flag %>
+        <li class='list-group-item task-item completed' id="task_<%= task.id %>">
+          <%= link_to("Mark Incomplete",
+            task_path(id: task.id, completed_flag: false),
+            method: "patch",
+            class: "btn btn-sm btn-danger" ) %>
+      <% else %>
+        <li class='list-group-item task-item' id="task_<%= task.id %>">
+          <%= link_to('Mark Complete',
+            task_path(id: task.id, completed_flag: true),
+            method: 'patch',
+            :class => 'btn btn-sm btn-success')  %>
+      <% end %>
+        <%= link_to("Delete",
+            task_path(id: task.id),
+            method: "delete",
+            class: "btn btn-sm btn-warning",
+            data: { confirm: "Are you sure?" }) %>
+        <%= task.name %>
+      </li>
+    <% end %>
+    <li class='list-group-item' id="new-task-form">
+      <%= form_tag("/tasks", method: "post") do %>
+        <%= submit_tag("Add New Task", class: "btn btn-sm btn-primary") %>
+        <%= text_field_tag(:name) %>
+      <% end %>
+    </li>
+  </ul>
+</div>
