@@ -1,3 +1,11 @@
 language: ruby
 rvm:
-  - "1.9.3"
+- 1.9.3
+deploy:
+  provider: opsworks
+  access_key_id: AKIAIIGEGGFSBUSWAOBA
+  secret_access_key:
+    secure: PFEnPiKc/YzR77TpxhfylcuAnTAEanyZ+Nmo7VFWkB45sOJkif5oFROmBXSvFwq2KPBt7B+i7kTrcncW0BXGywwDAdhyjDWWDG8YRDAhn/xCqnNxIpaanq9PQwxWpq8iXEDL2qi8t/LkWh7F4YCEIDArLGjebCXFjeuiTgqySHY=
+  app-id: d51d8df2-7f75-4519-9e63-43c68d9b612e
+  on:
+    repo: h8windows/bbchallengeow
