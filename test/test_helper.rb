@@ -15,8 +15,5 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
-  group :test do
-    gem 'pullreview-coverage', require: false
-  end
   
 end

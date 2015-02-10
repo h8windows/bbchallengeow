@@ -36,7 +36,7 @@ gem 'mysql2', '~> 0.3.16'
 # Use unicorn as the app server
 gem 'unicorn'
 
-gem 'pullreview-coverage', '~> 0.0.2'
+gem 'pullreview-coverage', '~> 0.0.2', group: :test
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
